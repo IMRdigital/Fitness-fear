@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS FEAR | Premium Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff3131; /* Neon Red/Orange Accent */
+            --bg-dark: #0a0a0a; /* Deep Premium Black */
+            --bg-card: #141414; /* Lighter Black for Cards */
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            position: relative;
+            background: linear-gradient(to right, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.3)), 
+                        url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop') no-repeat center center/cover;
+        }
+
+        .hero h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 500px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .btn-premium {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0px; /* Sharp premium edges */
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 49, 49, 0.4);
+        }
+
+        .btn-premium:hover {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Features/Programs Section */
+        .programs {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .premium-card {
+            background-color: var(--bg-card);
+            padding: 40px 30px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 49, 49, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .premium-card:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .premium-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .premium-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.2rem; }
+            nav ul { display: none; } /* Mobile menu integration skipped for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FITNESS<span>FEAR</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Conquer The Limits</h2>
+        <h1>Fear is a liar.<br>Crush your goals.</h1>
+        <p>An elite fitness experience engineered for those who demand more from their mind and body. No excuses, just results.</p>
+        <a href="#" class="btn-premium">Join Elite Club</a>
+    </section>
+
+    <section class="programs" id="programs">
+        <h2 class="section-title">Our Elite <span>Programs</span></h2>
+        
+        <div class="grid">
+            <div class="premium-card">
+                <h3>01 / Hypertrophy</h3>
+                <p>Advanced muscle-building protocols designed to maximize mechanical tension and metabolic stress for elite growth.</p>
+            </div>
+            <div class="premium-card">
+                <h3>02 / Tactical Conditioning</h3>
+                <p>High-intensity athletic conditioning to shred fat while maintaining explosive strength and operational endurance.</p>
+            </div>
+            <div class="premium-card">
+                <h3>03 / Elite Nutrition</h3>
+                <p>Macro-calculated premium meal planning engineered precisely for your metabolic rate and body composition goals.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
